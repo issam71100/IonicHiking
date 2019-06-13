@@ -1,5 +1,7 @@
 {
   "name": "IonicHiking",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
