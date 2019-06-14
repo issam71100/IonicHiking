@@ -7,7 +7,7 @@ export class ItemService {
   items: Array<any> = [
     {
       id: '1',
-      title: 'Narutp',
+      title: 'Naruto',
       address: 'Konoha',
       time: '12:25',
       description: 'Direction univers de naruto'

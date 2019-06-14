@@ -20,15 +20,19 @@
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
+    "@asymmetrik/ngx-leaflet": "^5.0.2",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.1.0",
+    "@types/leaflet": "^1.4.4",
     "cordova-ios": "5.0.1",
     "core-js": "^2.5.4",
+    "leaflet": "^1.5.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.29"
+    "zone.js": "~0.8.29",
+    "leaflet-geosearch": "latest"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.13.8",
