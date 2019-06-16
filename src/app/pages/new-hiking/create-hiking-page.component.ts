@@ -57,16 +57,13 @@ export class CreateHikingPage implements OnInit {
         const latLngEnd: [number, number] = [value.addressLat1, value.addressLng1];
 
 
-        this.mapService.get_polyline(latLngStart, latLngEnd)
-            .then((resolve) => {
-                this.mapService.decodeMap(resolve).then((pathToDestination) => {
-                    this.itemService.createItem(value.title, address, pathToDestination, value.time, value.description);
-                    this.newHikingForm.reset();
-                    this.goBack();
-                });
+        this.mapService.get_polyline(latLngStart, latLngEnd).then((resolve) => {
+            this.mapService.decodeMap(resolve).then((pathToDestination) => {
+                this.itemService.createItem(value.title, address, pathToDestination, value.time, value.description);
+                this.newHikingForm.reset();
+                this.goBack();
             });
-
-
+        });
     }
 
 }

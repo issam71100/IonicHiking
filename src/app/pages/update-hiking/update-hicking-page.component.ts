@@ -32,11 +32,11 @@ export class UpdateHickingPage implements OnInit {
                     this.editHikingForm = this.formBuilder.group({
                         title: new FormControl(this.item.title, Validators.required),
                         addressStart: new FormControl(this.item.address[0][0]),
-                        addressLng0:  new FormControl(this.item.address[0][1]),
-                        addressLng1:  new FormControl(this.item.address[0][2]),
-                        addressEnd :  new FormControl(this.item.address[1][0]),
-                        addressLat0:  new FormControl(this.item.address[1][1]),
-                        addressLat1:  new FormControl(this.item.address[1][2]),
+                        addressLng0: new FormControl(this.item.address[0][1]),
+                        addressLng1: new FormControl(this.item.address[0][2]),
+                        addressEnd: new FormControl(this.item.address[1][0]),
+                        addressLat0: new FormControl(this.item.address[1][1]),
+                        addressLat1: new FormControl(this.item.address[1][2]),
                         time: new FormControl(this.item.time, Validators.required),
                         description: new FormControl(this.item.description, Validators.required)
                     });
@@ -53,7 +53,12 @@ export class UpdateHickingPage implements OnInit {
         const updateHiking = {
             id: this.item.id,
             title: value.title,
-            address: value.address,
+            addressStart: value.addressStart,
+            addressLng0: value.addressLng0,
+            addressLng1: value.addressLng1,
+            addressEnd: value.addressEnd,
+            addressLat0: value.addressLat0,
+            addressLat1: value.addressLat1,
             time: value.time,
             description: value.description
         };
