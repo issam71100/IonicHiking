@@ -16,7 +16,7 @@ export class ItemService {
 
   constructor() { }
 
-  createItem(title, address, time, description) {
+  createItem(title: string, address: [], time: string, description: string) {
 
     this.items.push({
       // tslint:disable-next-line:radix

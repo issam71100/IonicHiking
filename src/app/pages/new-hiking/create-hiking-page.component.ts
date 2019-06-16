@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ItemService } from '../../services/item.service';
@@ -21,7 +21,7 @@ export class CreateHikingPage implements OnInit {
   ngOnInit() {
     this.newHikingForm = this.formBuilder.group({
       title: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
+      address: new FormControl(''),
       time: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required)
     });
