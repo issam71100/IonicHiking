@@ -25,6 +25,9 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         LeafletModule.forRoot(),
     ],
+    exports: [
+        MapComponent
+    ],
     declarations: [CreateHikingPage, MapComponent]
 })
 export class NewItemPageModule {

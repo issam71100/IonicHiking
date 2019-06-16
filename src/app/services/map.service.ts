@@ -1,5 +1,7 @@
-import {Injectable, NgModule} from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import polyUtil from 'polyline-encoded';
+
 
 @Injectable({
     providedIn: 'root'
@@ -23,6 +25,12 @@ export class MapService {
                 });
             }
         );
+    }
+
+    decodeMap(code) {
+        return new Promise(((resolve, reject) => {
+            resolve(polyUtil.decode(code.polyline, 6));
+        }));
     }
 
 }
