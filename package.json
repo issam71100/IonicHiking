@@ -29,10 +29,11 @@
     "cordova-ios": "5.0.1",
     "core-js": "^2.5.4",
     "leaflet": "^1.5.1",
+    "leaflet-geosearch": "latest",
+    "polyline-encoded": "^0.0.8",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.29",
-    "leaflet-geosearch": "latest"
+    "zone.js": "~0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.13.8",
@@ -46,7 +47,7 @@
     "@ionic/angular-toolkit": "~1.5.1",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~12.0.0",
+    "@types/node": "^12.0.8",
     "codelyzer": "~4.5.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.1.3",

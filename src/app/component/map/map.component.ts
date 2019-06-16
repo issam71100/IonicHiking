@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
-declare let L;
+import polyUtil from 'polyline-encoded';
 
 @Component({
     selector: 'app-map',
@@ -15,16 +15,6 @@ export class MapComponent implements OnInit {
     }
 
     ngOnInit() {
-        // We’ll add a tile layer to add to our map, in this case it’s a OSM tile layer.
-        // Creating a tile layer usually involves setting the URL template for the tile images
-        // tslint:disable-next-line:only-arrow-functions
-/*        const osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-            osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            osm = L.tileLayer(osmUrl, {
-                maxZoom: 18,
-                attribution: osmAttrib
-            });*/
-
         // initialize the map on the "map" div with a given center and zoom
         this.map = new Map('map').setView([19.04469, 72.9258], 8);
 
@@ -33,6 +23,11 @@ export class MapComponent implements OnInit {
             attribution: 'openstreetmap',
             maxZoom: 18
         }).addTo(this.map);
+
+
+        const encoded = '_p~iF~cn~U_ulLn{vA_mqNvxq`@';
+        console.log(polyUtil.decode(encoded));
+// prints an array of 3 LatLng objects.
     }
 
 }
