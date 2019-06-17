@@ -20,6 +20,7 @@ export class MapService {
                 const origin = start[0] + ',' + start[1];
                 const destination = end[0] + ',' + end[1];
                 const uri = this.baseUrl + 'origin=' + origin + '&destination=' + destination + '&mode=walking&key=' + this.key;
+                // const uri = `${this.baseUrl}origin=${origin}`;
                 this.httpClient.get(uri).subscribe((res) => {
                     resolve(res);
                 });

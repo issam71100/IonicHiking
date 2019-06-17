@@ -59,7 +59,11 @@ export class CreateHikingPage implements OnInit {
 
         this.mapService.get_polyline(latLngStart, latLngEnd).then((resolve) => {
             this.mapService.decodeMap(resolve).then((pathToDestination) => {
-                this.itemService.createItem(value.title, address, pathToDestination, value.time, value.description);
+                // @ts-ignore
+                const total_distance = resolve.total_distance;
+                // @ts-ignore
+                const total_time = resolve.total_time;
+                this.itemService.createItem(value.title, address, pathToDestination, total_time, total_distance, value.description);
                 this.newHikingForm.reset();
                 this.goBack();
             });

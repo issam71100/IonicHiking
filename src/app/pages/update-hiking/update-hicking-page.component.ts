@@ -10,15 +10,38 @@ import {ItemService} from '../../services/item.service';
 })
 export class UpdateHickingPage implements OnInit {
 
-    item: any;
-    editHikingForm: FormGroup;
-
     constructor(
         private router: Router,
         private route: ActivatedRoute,
         public formBuilder: FormBuilder,
         private itemService: ItemService,
     ) {
+    }
+
+    item: any;
+    editHikingForm: FormGroup;
+
+    static secondsToTime(timestamp) {
+
+        const secondsNum = timestamp;
+        let hours: number = Math.floor(secondsNum / 3600);
+        let minutes: number = Math.floor((secondsNum - (hours * 3600)) / 60);
+        let seconds: number = secondsNum - (hours * 3600) - (minutes * 60);
+
+        if (hours < 10) {
+            hours = Number('0' + hours);
+        }
+        if (minutes < 10) {
+            minutes = Number('0' + minutes);
+        }
+        if (seconds < 10) {
+            seconds = Number('0' + seconds);
+        }
+        console.log(hours + ':' + minutes + ':' + seconds);
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        const datetime = new Date('1970-01-01T' + timeString + 'Z');
+        const formattedTime = datetime.getHours() + ':' + datetime.getMinutes() + ':' + datetime.getSeconds();
+        return formattedTime;
     }
 
     ngOnInit() {
@@ -37,7 +60,7 @@ export class UpdateHickingPage implements OnInit {
                         addressEnd: new FormControl(this.item.address[1][0]),
                         addressLat0: new FormControl(this.item.address[1][1]),
                         addressLat1: new FormControl(this.item.address[1][2]),
-                        time: new FormControl(this.item.time, Validators.required),
+                        time: new FormControl(UpdateHickingPage.secondsToTime(this.item.time)),
                         description: new FormControl(this.item.description, Validators.required)
                     });
                 }
@@ -65,5 +88,4 @@ export class UpdateHickingPage implements OnInit {
         this.itemService.updateItem(updateHiking);
         this.goBack();
     }
-
 }

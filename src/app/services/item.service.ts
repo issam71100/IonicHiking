@@ -11,7 +11,7 @@ export class ItemService {
 
   constructor() { }
 
-  createItem(title: string, address: FormControl[][], pathToDestination, time: string, description: string) {
+  createItem(title: string, address: FormControl[][], pathToDestination, time: string, distance: number, description: string) {
 
     this.items.push({
       // tslint:disable-next-line:radix
@@ -20,6 +20,7 @@ export class ItemService {
       address,
       pathToDestination,
       time,
+      distance,
       description
     });
   }
