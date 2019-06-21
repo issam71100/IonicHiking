@@ -9,61 +9,20 @@
 
 <app-map-hiking></app-map-hiking>
 
-<ion-content *ngIf="item" padding>
-    <form [formGroup]="editHikingForm" (ngSubmit)="updateItem(editHikingForm.value)">
-        <ion-item>
-            <ion-label color="primary" position="floating">Title</ion-label>
-            <ion-input type="text" formControlName="title" required></ion-input>
-        </ion-item>
-        <ion-grid>
-            <ion-item>
-                <ion-label color="primary" position="floating">Adresse Départ</ion-label>
-                <ion-input type="text" formControlName="addressStart" required></ion-input>
-            </ion-item>
-            <ion-row>
-                <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" position="floating">Lng Départ</ion-label>
-                        <ion-input type="number" formControlName="addressLng0" required></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" position="floating">Lat Départ</ion-label>
-                        <ion-input type="number" formControlName="addressLng1" required></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-            <ion-item>
-                <ion-label color="primary" position="floating">Adresse Arrivé</ion-label>
-                <ion-input type="text" formControlName="addressEnd" required></ion-input>
-            </ion-item>
-            <ion-row>
-                <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" position="floating">Lng Arrivé</ion-label>
-                        <ion-input type="number" formControlName="addressLat0" required></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" position="floating">Lat Arrivé</ion-label>
-                        <ion-input type="number" formControlName="addressLat1" required></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-        <ion-item>
-            <ion-label color="primary" position="floating">Temps</ion-label>
-            <ion-input type="time" formControlName="time" readonly></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary" position="floating">Description</ion-label>
-            <ion-input type="text" formControlName="description" required></ion-input>
-        </ion-item>
-        <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!editHikingForm.valid">Update
-        </ion-button>
-    </form>
-
+<ion-content *ngIf="item">
+    <div class="container-fluid">
+        <div class="field">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="text">{{ item.address[0][0] }}</div>
+        </div>
+        <div class="field">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="text">{{ item.address[1][0] }}</div>
+        </div>
+        <div class="field">
+            <i class="far fa-clock"></i>
+            <div class="text">{{ item.time }}</div>
+        </div>
+    </div>
 </ion-content>
 

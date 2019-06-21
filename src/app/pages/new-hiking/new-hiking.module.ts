@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {CreateHikingPage} from './create-hiking-page.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {MapComponent} from '../../component/map/map.component';
+import {ComponentsModule} from '../../component/components.module';
 
 const routes: Routes = [
     {
@@ -24,6 +25,8 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         LeafletModule.forRoot(),
+        ComponentsModule,
+
     ],
     exports: [
         MapComponent

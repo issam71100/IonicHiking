@@ -43,6 +43,8 @@ export class MapHikingComponent implements OnInit {
 
         poly.addTo(this.map);
 
+        this.map.fitBounds(poly.getBounds());
+
     }
 
 }

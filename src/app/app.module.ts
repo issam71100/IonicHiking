@@ -10,6 +10,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {HttpClientModule} from '@angular/common/http';
+import {TimerComponent} from './component/timer/timer.component';
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,7 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
         SplashScreen,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
-    bootstrap: [AppComponent]
+    bootstrap:  [AppComponent]
 })
 export class AppModule {
 }
