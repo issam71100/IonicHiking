@@ -8,7 +8,7 @@
 </ion-header>
 
 <app-map-hiking></app-map-hiking>
-
+<ion-button class="submit-btn" expand="block" type="submit" (click)="initTimer()" >Start</ion-button>
 <ion-content *ngIf="item">
     <div class="container-fluid">
         <div class="field">
@@ -25,4 +25,4 @@
         </div>
     </div>
 </ion-content>
-
+<app-timer></app-timer>

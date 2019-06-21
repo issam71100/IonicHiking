@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {ItemService} from '../../services/item.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import {faCoffee} from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {TimerComponent} from '../../component/timer/timer.component';
 
 @Component({
     selector: 'app-update-item',
@@ -10,15 +11,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
     styleUrls: ['./update-hicking-page.component.scss'],
 })
 export class UpdateHickingPage implements OnInit {
-
-    faCoffee = faCoffee;
-
+    
     constructor(
         private router: Router,
         private route: ActivatedRoute,
         private itemService: ItemService,
     ) {
     }
+
     item: any;
 
 
@@ -36,6 +36,10 @@ export class UpdateHickingPage implements OnInit {
 
     goBack() {
         this.router.navigate(['/home']);
+    }
+
+    initTimer() {
+        TimerComponent.initTimer(this.item);
     }
 
 }
