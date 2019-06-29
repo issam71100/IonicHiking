@@ -18,30 +18,40 @@
             <img src="assets/images/hike.jpg">
           </div>
         </div>
-        <div class="col-md-7 col-7 pr-0">
-          <h4>{{ item.title }}</h4>
-          <div class="address">
-            <i class="fas fa-map-marker-alt"></i>
-            <span class="hike-info">{{ item.address[0][0] }}</span>
-          </div>
-          <div class="address">
-            <i class="fas fa-map-pin"></i>
-            <span class="hike-info">{{ item.address[1][0] }}</span>
-          </div>
-          <div class="description">{{ item.description }}</div>
-          <div class="row">
-            <div class="col-md-6 col-6">
-              <div class="time">
-                <i class="far fa-clock"></i>
-                <span class="hike-info">{{ item.time }}</span>
+        <div class="col-md-7 col-7 pr-0 d-flex">
+          <div class="hike-general-infos">
+            <h4>{{ item.title }}</h4>
+            <div class="address">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="hike-info">{{ item.address[0][0] }}</span>
+            </div>
+            <div class="address">
+              <i class="fas fa-map-pin"></i>
+              <span class="hike-info">{{ item.address[1][0] }}</span>
+            </div>
+            <div class="description">{{ item.description }}</div>
+            <div class="row">
+              <div class="col-md-6 col-6">
+                <div class="time">
+                  <i class="far fa-clock"></i>
+                  <span class="hike-info">{{ item.time }}</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-6">
+                <div class="distance">
+                  <i class="fas fa-road"></i>
+                  <span class="hike-info">{{ item.distance }} m</span>
+                </div>
               </div>
             </div>
-            <div class="col-md-6 col-6">
-              <div class="distance">
-                <i class="fas fa-road"></i>
-                <span class="hike-info">{{ item.distance }} m</span>
-              </div>
+            <div class="hike-mark">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
             </div>
+
           </div>
 
         </div>

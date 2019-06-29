@@ -1,24 +1,80 @@
-.hike-info{
+.hike-info {
   margin-left: 5px;
 }
-.card{
+
+.card {
   font-size: .7em;
-  .card-img{
+  height: 130px;
+  *{
     height: 100%;
-    img{
+  }
+  .hike-general-infos{
+    height: auto;
+    margin: auto 0;
+    width: 100%;
+    *{
+      height: auto;
+    }
+  }
+  .card-img {
+    height: 100%;
+
+    img {
       object-fit: contain;
       width: 100%;
       height: 100%;
     }
   }
 
-  h4{
+  h4 {
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 0;
-  }
-  i{
     color: #3880ff;
   }
-}
 
+  i {
+    color: #3880ff;
+  }
+
+  .description {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 1.2em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 3.6em;
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;
+    padding-right: 13px;
+
+    &:before {
+      /* points in the end */
+      content: '...';
+      /* absolute position */
+      position: absolute;
+      /* set position to right bottom corner of block */
+      right: 0;
+      bottom: 0;
+    }
+
+    /* hide ... if we have text, which is less than or equal to max lines */
+    &:after {
+      /* points in the end */
+      content: '';
+      /* absolute position */
+      position: absolute;
+      /* set position to right bottom corner of text */
+      right: 0;
+      /* set width and height */
+      width: 1em;
+      height: 1em;
+      margin-top: 0.2em;
+      /* bg color = bg color under block */
+      background: white;
+    }
+  }
+
+}

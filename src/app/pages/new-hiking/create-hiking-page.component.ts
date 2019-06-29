@@ -30,7 +30,6 @@ export class CreateHikingPage implements OnInit {
             addressEnd: new FormControl(''),
             addressLat0: new FormControl(''),
             addressLat1: new FormControl(''),
-            time: new FormControl('', Validators.required),
             description: new FormControl('', Validators.required)
         });
 
@@ -91,7 +90,7 @@ export class CreateHikingPage implements OnInit {
         const timeString = `${hours}:${minutes}:${seconds}`;
         // const datetime = new Date('1970-01-01T' + timeString + 'Z');
         return timeString;
-    };
+    }
 
 
 }
