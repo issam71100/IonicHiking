@@ -1,6 +1,11 @@
-<div class="{{staticTimeShow}}">
-  <ion-toolbar color="primary">
-    <ion-title>{{[staticTime]}}</ion-title>
-  </ion-toolbar>
+<div class="d-flex" *ngIf="!started">
+    <button class="btn btn-primary" (click)="initTimer()">Start</button>
 </div>
 
+<div class="d-flex" *ngIf="started">
+    <button class="btn btn-primary" (click)="stopTimer()">Stop</button>
+</div>
+
+<div class="timer" *ngIf="started">
+    <ion-title>{{timeInSecs * 1000 | date:'HH:mm:ss'}}</ion-title>
+</div>

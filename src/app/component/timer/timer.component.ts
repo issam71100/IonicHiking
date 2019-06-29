@@ -1,5 +1,5 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-
+import {timer} from 'rxjs';
 
 @Component({
     selector: 'app-timer',
@@ -8,33 +8,25 @@ import {Component, HostBinding, OnInit} from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-    @HostBinding('hidden')
-    private static show: boolean;
-    private static item: any;
 
-    constructor() {
-        TimerComponent.show = false;
-    }
+    started: boolean;
 
-    static initTimer(hiking) {
-        this.show = true;
-        this.item = hiking;
-    }
+    timeInSecs: number;
 
-    static exitTimer() {
-        this.show = false;
-        this.item = null;
-    }
+    private sourceTwo;
 
     ngOnInit() {
+        this.started = false;
     }
 
-
-    get staticTime() {
-        return TimerComponent.item.time;
+    initTimer() {
+        this.started = true;
+        this.sourceTwo = timer(0, 1000);
+        this.sourceTwo.subscribe(val => this.timeInSecs = val);
     }
 
-    get staticTimeShow() {
-        return TimerComponent.show;
+    stopTimer() {
+        this.started = false;
+        this.sourceTwo.unsubscribe();
     }
 }

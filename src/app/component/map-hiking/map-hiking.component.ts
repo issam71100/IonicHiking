@@ -47,4 +47,7 @@ export class MapHikingComponent implements OnInit {
 
     }
 
+    initTimer() {
+
+    }
 }

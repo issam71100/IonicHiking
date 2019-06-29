@@ -11,7 +11,7 @@ import {TimerComponent} from '../../component/timer/timer.component';
     styleUrls: ['./update-hicking-page.component.scss'],
 })
 export class UpdateHickingPage implements OnInit {
-    
+
     constructor(
         private router: Router,
         private route: ActivatedRoute,
@@ -36,10 +36,6 @@ export class UpdateHickingPage implements OnInit {
 
     goBack() {
         this.router.navigate(['/home']);
-    }
-
-    initTimer() {
-        TimerComponent.initTimer(this.item);
     }
 
 }
