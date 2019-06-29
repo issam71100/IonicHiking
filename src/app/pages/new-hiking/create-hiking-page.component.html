@@ -7,15 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<app-map></app-map>
 <ion-content padding>
   <form [formGroup]="newHikingForm" (submit)="createItem(newHikingForm.value)">
     <ion-item>
       <ion-label color="primary" position="floating">Title</ion-label>
       <ion-input type="text" formControlName="title" required></ion-input>
     </ion-item>
-
-
     <ion-grid>
       <ion-item>
         <ion-label color="primary" position="floating">Adresse Départ</ion-label>
