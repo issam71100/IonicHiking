@@ -42,6 +42,11 @@ export class MapHikingComponent implements OnInit {
         const pathToDestination = this.item.pathToDestination;
         const poly = polyline(pathToDestination, {color: 'blue'});
 
+
+        console.log(pathToDestination);
+        // this.getSteps(pathToDestination);
+
+
         poly.addTo(this.map);
 
         this.map.fitBounds(poly.getBounds());
@@ -58,7 +63,7 @@ export class MapHikingComponent implements OnInit {
             popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
 
-        const myPosition = marker([0,0], {icon: positionIcon}).addTo(this.map);
+        const myPosition = marker([0, 0], {icon: positionIcon}).addTo(this.map);
 
 
         LocationService.doAction( () => {
@@ -67,4 +72,5 @@ export class MapHikingComponent implements OnInit {
         });
 
     }
+
 }
