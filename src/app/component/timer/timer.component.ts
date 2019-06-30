@@ -22,11 +22,16 @@ export class TimerComponent implements OnInit {
     initTimer() {
         this.started = true;
         this.sourceTwo = timer(0, 1000);
-        this.sourceTwo.subscribe(val => this.timeInSecs = val);
+        this.sourceTwo.subscribe(val => {
+            if (this.started) {
+                this.timeInSecs = val;
+            } else {
+                this.sourceTwo.unsubscribe();
+            }
+        });
     }
 
     stopTimer() {
         this.started = false;
-        this.sourceTwo.unsubscribe();
     }
 }
