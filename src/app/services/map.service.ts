@@ -34,4 +34,24 @@ export class MapService {
         }));
     }
 
+    secondsToTime = timestamp => {
+
+        const secondsNum = timestamp;
+        let hours: number = Math.floor(secondsNum / 3600);
+        let minutes: number = Math.floor((secondsNum - (hours * 3600)) / 60);
+        let seconds: number = secondsNum - (hours * 3600) - (minutes * 60);
+
+        if (hours < 10) {
+            hours = Number('0' + hours);
+        }
+        if (minutes < 10) {
+            minutes = Number('0' + minutes);
+        }
+        if (seconds < 10) {
+            seconds = Number('0' + seconds);
+        }
+        console.log(hours + ':' + minutes + ':' + seconds);
+        // const datetime = new Date('1970-01-01T' + timeString + 'Z');
+        return `${hours}:${minutes}:${seconds}`;
+    }
 }

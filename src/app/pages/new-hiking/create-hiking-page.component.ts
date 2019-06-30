@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ItemService} from '../../services/item.service';
 import {MapService} from '../../services/map.service';
 
@@ -61,7 +61,7 @@ export class CreateHikingPage implements OnInit {
                 // @ts-ignore
                 const total_distance = resolve.total_distance;
                 // @ts-ignore
-                const totalTime = this.secondsToTime(resolve.total_time);
+                const totalTime = this.mapService.secondsToTime(resolve.total_time);
                 console.log(address);
                 this.itemService.createItem(value.title, address, pathToDestination, totalTime, total_distance, value.description);
                 this.newHikingForm.reset();
@@ -70,27 +70,7 @@ export class CreateHikingPage implements OnInit {
         });
     }
 
-    private secondsToTime = timestamp => {
 
-        const secondsNum = timestamp;
-        let hours: number = Math.floor(secondsNum / 3600);
-        let minutes: number = Math.floor((secondsNum - (hours * 3600)) / 60);
-        let seconds: number = secondsNum - (hours * 3600) - (minutes * 60);
-
-        if (hours < 10) {
-            hours = Number('0' + hours);
-        }
-        if (minutes < 10) {
-            minutes = Number('0' + minutes);
-        }
-        if (seconds < 10) {
-            seconds = Number('0' + seconds);
-        }
-        console.log(hours + ':' + minutes + ':' + seconds);
-        const timeString = `${hours}:${minutes}:${seconds}`;
-        // const datetime = new Date('1970-01-01T' + timeString + 'Z');
-        return timeString;
-    }
 
 
 }

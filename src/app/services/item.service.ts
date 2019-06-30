@@ -1,34 +1,55 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {MapService} from "./map.service";
+
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ItemService {
-  items: Array<any> = [
+    items: Array<any> = [];
 
-  ];
+    itemsSaved: Array<any> = [];
 
-  constructor() { }
+    constructor(private mapService: MapService) {
+        this.initItems();
+    }
 
-  createItem(title: string, address: FormControl[][], pathToDestination, time: string, distance: number, description: string) {
-    this.items.push({
-      id: Number(this.items.length + 1),
-      title,
-      address,
-      pathToDestination,
-      time,
-      distance,
-      description
-    });
-  }
+    initItems() {
+        this.mapService.get_polyline().then((resolve) => {
+            this.mapService.decodeMap(resolve).then((pathToDestination) => {
+                console.log(resolve);
+                // @ts-ignore
+                const total_distance = resolve.total_distance;
+                // @ts-ignore
+                const totalTime = this.mapService.secondsToTime(resolve.total_time);
 
-  getItems() {
-    return this.items;
-  }
+                // @ts-ignore
+                const address = [['Lyon Centre', pathToDestination[0]], ['Paris Centre', pathToDestination[pathToDestination.length - 1]]];
 
-  getItemById(id) {
-    // tslint:disable-next-line:triple-equals
-    return this.items.filter(item => item.id == id);
-  }
+                this.createItem('Lyon - Paris', address, pathToDestination, totalTime, total_distance, 'Go to Paris from Lyon');
+            });
+        });
+    }
+
+    createItem(title: string, address: (string | number)[][], pathToDestination, time: string, distance: number, description: string) {
+        this.items.push({
+            id: Number(this.items.length + 1),
+            title,
+            address,
+            pathToDestination,
+            time,
+            distance,
+            description
+        });
+    }
+
+    getItems() {
+        return this.items;
+    }
+
+    getItemById(id) {
+        // tslint:disable-next-line:triple-equals
+        return this.items.filter(item => item.id == id);
+    }
 }
