@@ -56,7 +56,7 @@ export class CreateHikingPage implements OnInit {
         const latLngEnd: [number, number] = [value.addressLat1, value.addressLng1];
 
 
-        this.mapService.get_polyline(/*latLngStart, latLngEnd*/).then((resolve) => {
+        this.mapService.get_polyline(latLngStart, latLngEnd).then((resolve) => {
             this.mapService.decodeMap(resolve).then((pathToDestination) => {
                 // @ts-ignore
                 const total_distance = resolve.total_distance;
