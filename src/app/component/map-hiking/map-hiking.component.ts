@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Map, marker, polyline, tileLayer, icon, latLng} from 'leaflet';
+import {Map, marker, polyline, tileLayer, icon, latLng, Control, DomUtil} from 'leaflet';
 import {ItemService} from '../../services/item.service';
 import {ActivatedRoute} from '@angular/router';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
@@ -66,10 +66,62 @@ export class MapHikingComponent implements OnInit {
         const myPosition = marker([0, 0], {icon: positionIcon}).addTo(this.map);
 
 
-        LocationService.doAction( () => {
-            this.map.fitBounds(LocationService.latlngposition.toBounds(5));
+        LocationService.doAction(() => {
             myPosition.setLatLng([LocationService.latlngposition.lat, LocationService.latlngposition.lng]);
         });
+
+
+        const positionCustomControl = Control.extend({
+            options: {
+                position: 'topright'
+                // control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+            },
+
+            onAdd: (map) => {
+                const container = DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+
+                container.style.backgroundColor = 'white';
+                container.style.backgroundImage = 'url(../../assets/icon/crosshairs-solid.svg)';
+                container.style.backgroundSize = '20px 20px';
+                container.style.backgroundPosition = 'center';
+                container.style.backgroundRepeat = 'no-repeat';
+                container.style.width = '30px';
+                container.style.height = '30px';
+
+                container.onclick = () => {
+                    this.map.fitBounds(LocationService.latlngposition.toBounds(5));
+                };
+                return container;
+            }
+
+        });
+        this.map.addControl(new positionCustomControl());
+
+        const pathCustomControl = Control.extend({
+            options: {
+                position: 'topright'
+            },
+
+            onAdd: (map) => {
+                const container = DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+
+                container.style.backgroundColor = 'white';
+                container.style.backgroundImage = 'url(../../assets/icon/hiking-solid.svg)';
+                container.style.backgroundSize = '20px 20px';
+                container.style.backgroundPosition = 'center';
+                container.style.backgroundRepeat = 'no-repeat';
+                container.style.width = '30px';
+                container.style.height = '30px';
+
+                container.onclick = () => {
+                    this.map.fitBounds(poly.getBounds());
+                };
+                return container;
+            }
+
+        });
+
+        this.map.addControl(new pathCustomControl());
 
     }
 
