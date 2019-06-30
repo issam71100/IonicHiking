@@ -15,6 +15,7 @@ export class TimerComponent implements OnInit {
 
     private sourceTwo;
 
+
     ngOnInit() {
         this.started = false;
     }

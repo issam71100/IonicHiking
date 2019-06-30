@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {ItemService} from '../../services/item.service';
-import {faCoffee} from '@fortawesome/free-solid-svg-icons';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {TimerComponent} from '../../component/timer/timer.component';
 
 @Component({
     selector: 'app-update-item',

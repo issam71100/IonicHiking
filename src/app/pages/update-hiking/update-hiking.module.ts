@@ -27,7 +27,7 @@ const routes: Routes = [
         LeafletModule.forRoot(),
         ComponentsModule,
     ],
-    declarations: [UpdateHickingPage, MapHikingComponent]
+    declarations: [UpdateHickingPage, MapHikingComponent],
 })
 export class UpdateItemPageModule {
 }
